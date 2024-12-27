@@ -1,3 +1,8 @@
+# Badges
+![Badge Release](https://img.shields.io/badge/Release%20Date:-Diciembre-blue)
+![Badge Java](https://img.shields.io/badge/Java:-17-blue)
+![Badge Java](https://img.shields.io/badge/Spring%20Boot:-3.4.1-blue)
+![Badge Finalizado](https://img.shields.io/badge/Status:-Finalizado-blue)
 
 # LiterAlura
 
@@ -64,3 +69,28 @@ Los pasos para completar este desafío se detallarán a continuación:
 0.- Salir     
 
 ![image](https://github.com/user-attachments/assets/bd82bc92-a412-4c39-9644-9a11725272c8)
+
+* Base de Datos
+
+Tabla libros:
+
+  ![image](https://github.com/user-attachments/assets/02cf5dd9-be0a-4480-9af7-a01b34c520b3)
+
+Tabla autores
+
+![image](https://github.com/user-attachments/assets/7005f004-833c-4864-8777-e0d47c3b2e6e)
+
+
+## Environment Variables
+
+Para ejecutar este programa, se necesita agregar las siguientes variables de ambiente en su equipo:
+
+![image](https://github.com/user-attachments/assets/5761c4ac-7ccf-4c4b-bf7f-63bd361d9d19)
+
+## Badges
+
+
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
