@@ -4,7 +4,7 @@
 ![Badge Java](https://img.shields.io/badge/Spring%20Boot:-3.4.1-blue)
 ![Badge Finalizado](https://img.shields.io/badge/Status:-Finalizado-blue)
 
-# LiterAlura
+# LiterAlura 🏠
 
 Desarrollar un Catálogo de Libros que ofrezca interacción textual (vía consola) con los usuarios, proporcionando al menos 5 opciones de interacción. Los libros se buscarán a través de una API específica. La información sobre la API y las opciones de interacción con el usuario se detallará en la columna "Backlog"/"Listo para iniciar".
 
@@ -23,7 +23,7 @@ Los pasos para completar este desafío se detallarán a continuación:
 * Exibición de resultados a los usuarios;
 
 
-## API Reference
+## API Reference 🛒
 
 #### Get all items
 
@@ -37,7 +37,7 @@ Los pasos para completar este desafío se detallarán a continuación:
   GET /books?search=dickens%20great
 ```
 
-## WorkShop
+## WorkShop 🚀
 * Menú Principal
   
 ![image](https://github.com/user-attachments/assets/03eb83a5-29e8-4e6e-b67d-8458b5c8897f)
@@ -81,16 +81,20 @@ Tabla autores
 ![image](https://github.com/user-attachments/assets/7005f004-833c-4864-8777-e0d47c3b2e6e)
 
 
-## Environment Variables
+## Environment Variables 🖍
 
 Para ejecutar este programa, se necesita agregar las siguientes variables de ambiente en su equipo:
 
 ![image](https://github.com/user-attachments/assets/5761c4ac-7ccf-4c4b-bf7f-63bd361d9d19)
 
-## Badges
 
+## Construido con 🛠️
 
+Para desarrollar el proyecto, se utilizaron las siguientes herramientas:
 
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+* [Trello](https://trello.com/es) - Herramienta de gestión de proyectos.
+* [PostgreSQL](https://www.postgresql.org/) - Sistema de gestión de bases de datos.
+* [Java 17](https://www.oracle.com/java/) - Lenguaje de programación.
+* [IntelliJ IDEA](https://www.jetbrains.com/idea/) - Entorno de desarrollo integrado para el desarrollo de programas informáticos.
+* [Spring Boot](https://start.spring.io/) - Herramienta que hace que el desarrollo de aplicaciones web y microservicios con Spring Framework sea más rápido y fácil.
+
