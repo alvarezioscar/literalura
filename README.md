@@ -23,24 +23,12 @@ Los pasos para completar este desafío se detallarán a continuación:
 #### Get all items
 
 ```http
-  GET /api/items
+  GET https://gutendex.com/books
 ```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
 
 #### Get item
 
 ```http
-  GET /api/items/${id}
+  GET /books?search=dickens%20great
 ```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
 
