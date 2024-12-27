@@ -5,10 +5,16 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface iAutorRepository extends JpaRepository<Autor, Long> {
-    Autor findAuthorByName(String name);
+public interface autorRepository extends JpaRepository<Autor, Long> {
+    Optional<Autor> findByNombreContainsIgnoreCase(String nombreAutor);
 
-    @Query(value = "SELECT * FROM authors WHERE :year >= birth_year AND :year <= death_year", nativeQuery = true)
-    List<Autor> findAuthorBetweenYear(int year);
+    @Query("SELECT a FROM Autor a WHERE a.fechaDeNacimiento <= :segundaFecha AND (a.fechaDeDeceso IS NULL OR a.fechaDeDeceso >= :primeraFecha) ORDER BY a.fechaDeNacimiento")
+    List<Autor> buscarAutorVivoEnDeterminadaFecha(Integer primeraFecha, Integer segundaFecha);
+
+    @Query("SELECT a.nombre, COUNT(l.titulo) FROM Autor a JOIN Libro l ON a.id = l.id GROUP BY a.nombre ORDER BY 2 DESC")
+    List<Autor> consultarCantidadDeLibrosPorAutor();
+
+
 }

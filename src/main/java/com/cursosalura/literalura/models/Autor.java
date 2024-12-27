@@ -1,9 +1,10 @@
 package com.cursosalura.literalura.models;
 
-import com.cursosalura.literalura.models.records.DatosDelAutor;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "autores")
@@ -11,58 +12,72 @@ public class Autor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Long id;
+    @Column(unique = true)
     private String nombre;
-    private Integer cumpleanios;
-    private Integer fechaFallecimiento;
+    private Integer fechaDeNacimiento;
+    private Integer fechaDeDeceso;
 
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     //@Transient
-    private List<Libro> libros;
+    private List<Libro> librosDelAutor;
 
-    
     public Autor(){
 
     }
 
-    public Autor(Autor autor) {
-    }
+    public Autor(DatosDelAutor datosDelAutor) {
+        this.nombre = datosDelAutor.nombre();
+        this.fechaDeNacimiento = Integer.valueOf(datosDelAutor.fechaDeNacimiento());
+        this.fechaDeDeceso = Integer.valueOf((datosDelAutor.fechaDeDeceso()));
 
-    public Long getId() {
-        return id;
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public Integer getCumpleanios() {
-        return cumpleanios;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Integer getFechaFallecimiento() {
-        return fechaFallecimiento;
+    public Integer getFechaDeNacimiento() {
+        return fechaDeNacimiento;
     }
 
-    public List<Libro> getLibros() {
-        return libros;
+    public void setFechaDeNacimiento(Integer fechaDeNacimiento) {
+        this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
+    public Integer getFechaDeDeceso() {
+        return fechaDeDeceso;
     }
 
-    public Autor(DatosDelAutor autor){
-        this.nombre = autor.nombre();
-        this.cumpleanios = autor.cumpleanios();
-        this.fechaFallecimiento = autor.fechaFallecimiento();
+    public void setFechaDeDeceso(Integer fechaDeDeceso) {
+        this.fechaDeDeceso = fechaDeDeceso;
     }
+
+    public List<String> getLibrosDelAutor() {
+        return librosDelAutor.stream()
+                .map(libro -> libro.getTitulo())
+                .collect(Collectors.toList());
+    }
+
+    public void setLibrosDelAutor(Libro libro) {
+        librosDelAutor = new ArrayList<>();
+        librosDelAutor.add(libro);
+        libro.setAutor(this);
+    }
+
     @Override
-    public String toString() {
+    public String toString(){
         return
-                "Nombre = " + nombre + '\'' +
-                        ", cumpleanios=" + cumpleanios +
-                        ", fechaFallecimiento=" + fechaFallecimiento;
+                "Autor = " + nombre +
+                        "\nFecha de Nacimiento: " + fechaDeNacimiento +
+                        "\nFecha de Fallecimiento: " + fechaDeDeceso +
+                        "\nLibros: " + getLibrosDelAutor() +
+                        "\n-------------------------------------------";
     }
+
 }
 

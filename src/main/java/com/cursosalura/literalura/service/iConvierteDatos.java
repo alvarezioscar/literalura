@@ -1,5 +1,5 @@
-package com.cursosalura.literalura.config.iConfig;
+package com.cursosalura.literalura.service;
 
 public interface iConvierteDatos {
-    <T> T obtenerDatos(String jason, Class<T> clase);
+    <T> T convertirDatos(String json, Class<T> clase);
 }
