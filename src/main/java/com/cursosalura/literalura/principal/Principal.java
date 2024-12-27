@@ -7,6 +7,7 @@ import com.cursosalura.literalura.service.ConvierteDatos;
 import com.cursosalura.literalura.repository.autorRepository;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Principal {
     private Scanner teclado = new Scanner(System.in);
@@ -46,6 +47,7 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
                 **   3.-  Listado de Autores                               **
                 **   4.-  Listado de Autores vivos en determinado año      **
                 **   5.-  Listado de Libros por idioma                     **
+                **                                                         **
                 **   0.- Salir                                             **
                 *************************************************************
                 **            Ingrese la opción del menú que desea         **
@@ -100,7 +102,6 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
                 case 5:
                     listaLibrosIdioma();
                     break;
-
                 case 0:
                     opcion = 0;
                     System.out.println(mensaje2);
@@ -128,6 +129,22 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
     }
 
     private void buscarLibro(){
+        var mensaje12 = """
+                    *************************************************************
+                    **Este libro ya se encuentra registrado en la base de datos**
+                    *************************************************************
+                """;
+        var mensaje13 = """
+                    *************************************************************
+                    **         Libro registrado en la base con exito!          **
+                    *************************************************************
+                """;
+        var mensaje14 = """
+                    *************************************************************
+                    **                     Libro no encontrado :-(             **
+                    *************************************************************
+                """;
+
         Datos datos = getDatosLibros();
        // System.out.println(datos);
 
@@ -142,7 +159,7 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
 
 
             if (repositorioDeLibros.existsByTitulo(libro.getTitulo())){
-                System.out.println("Este libro ya se encuentra registrado en la base de datos.");
+                System.out.println(mensaje12);
 
             } else {
                 autorEncontrado = repositorioDeAutor.findByNombreContainsIgnoreCase(autor.getNombre());
@@ -155,11 +172,11 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
                     repositorioDeAutor.save(autor);
                 }
                 System.out.println(libro.toString());
-                System.out.println("Libro registrado en la base con exito.\n");
+                System.out.println(mensaje13);
             }
 
         } else {
-            System.out.println("Libro no encontrado");
+            System.out.println(mensaje14);
         }
     }
 
@@ -268,6 +285,6 @@ public Principal(autorRepository repositorioDeAutor, libroRepository repositorio
         libros.stream()
                 .filter(l -> l.getIdioma().equals(idioma))
                 .forEach(System.out::println);
-
     }
+
 }
